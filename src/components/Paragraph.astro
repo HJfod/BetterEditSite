@@ -1,0 +1,16 @@
+---
+---
+
+<p class={`text-text-50 max-w-paragraph ${Astro.props['class']} ${Astro.props['big'] === 'true' ? 'text-considerable' : ''}`}><slot/></p>
+
+<style is:global>
+    em {
+        @apply
+            not-italic
+            text-secondary-500;
+    }
+    em.alt {
+        @apply
+            text-accent-500;
+    }
+</style>

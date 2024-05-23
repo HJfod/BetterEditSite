@@ -1,0 +1,169 @@
+---
+import { ArrowLeftIcon, ArrowRightIcon } from "astro-feather";
+
+const gallery = await Astro.slots.render('default');
+const imgCount = gallery.match(/<\s*img/gs)?.length;
+---
+
+<div class="gallery flex flex-col justify-center items-center gap-small">
+    <main class="
+        grid grid-cols-1
+        justify-stretch items-stretch
+        max-w-paragraph
+        overflow-hidden
+        rounded-normal border-text-50 border-normal
+        shadow-heavy
+    ">
+        <div class="relative flex flex-row max-w-paragraph overflow-hidden select-none rounded-normal">
+            <Fragment set:html={gallery} />
+        </div>
+        <nav class="
+            flex flex-row
+            relative
+            justify-between items-stretch
+            opacity-0 transition-opacity
+        ">
+            <div><ArrowLeftIcon/></div>
+            <div><ArrowRightIcon/></div>
+        </nav>
+    </main>
+    <footer class="flex flex-row items-center gap-small">
+        {
+            Array(imgCount).fill(0).map((_, ix) => (
+                <button class="w-[0.6rem] h-[0.6rem] rounded-full bg-text-50 opacity-25 transition-all" data-index={ix}></button>
+            ))
+        }
+    </footer>
+</div>
+
+<script>
+    function select(gallery: HTMLElement, index: number, longerTimeout: boolean) {
+        // wrap around
+        if (index >= gallery.querySelector('footer')!.children.length) {
+            index = 0;
+        }
+        if (index < 0) {
+            index = gallery.querySelector('footer')!.children.length - 1;
+        }
+
+        let i = 0;
+        for (const child of gallery.querySelector('footer')!.children) {
+            child.classList.toggle('selected', i === index);
+            i += 1;
+        }
+
+        gallery.querySelector('main > div')!.scroll({
+            left: (gallery.querySelector('main > div')!.children.item(index)! as HTMLElement).offsetLeft,
+            behavior: 'smooth'
+        });
+        gallery.setAttribute('data-current-index', index.toString());
+
+        clearTimeout(parseInt(gallery.getAttribute('timeout-id') ?? ''));
+        gallery.setAttribute(
+            'timeout-id',
+            setTimeout(() => select(gallery, index + 1, false), longerTimeout ? 5000 : 3500).toString()
+        );
+    }
+    function handleSwipeStartOrClick(gallery: HTMLElement, touchPos: number, click: boolean) {
+        const rect = gallery.getBoundingClientRect();
+        const hitZone = rect.width / 6;
+
+        // Remove any existing touch-start attribute
+        gallery.removeAttribute('touch-start');
+
+        // Swipe if the touch wasn't within the side click area
+        if (click) {
+            const currentIndex = parseInt(gallery.getAttribute('data-current-index')!);
+            if (touchPos <= rect.left + hitZone) {
+                select(gallery, currentIndex - 1, true);
+            }
+            else if (touchPos >= rect.right - hitZone) {
+                select(gallery, currentIndex + 1, true);
+            }
+        }
+        else {
+            if (touchPos > rect.left + hitZone && touchPos < rect.right - hitZone) {
+                gallery.setAttribute('touch-start', touchPos.toString());
+            }
+        }
+    }
+    function handleSwipeMove(gallery: HTMLElement, touchPos: number) {
+        const start = gallery.getAttribute('touch-start');
+        if (start) {
+            const startPos = parseInt(start);
+            const rect = gallery.getBoundingClientRect();
+
+            // Make sure the swipe is long enough
+            if (Math.abs(touchPos - startPos) > rect.width / 6) {
+                const currentIndex = parseInt(gallery.getAttribute('data-current-index')!);
+                select(gallery, currentIndex + (touchPos > startPos ? -1 : 1), true);
+
+                // Don't trigger multiple times
+                gallery.removeAttribute('touch-start');
+            }
+        }
+    }
+    document.querySelectorAll('.gallery').forEach(elem => {
+        const gallery = elem as HTMLElement;
+
+        // Navigating by clicking on the sides
+        gallery.querySelector('main')!.addEventListener('click', e => {
+            handleSwipeStartOrClick(gallery, e.clientX, true);
+        });
+
+        // Navigating by swiping
+        gallery.querySelector('main')!.addEventListener('touchstart', e => {
+            handleSwipeStartOrClick(gallery, e.touches[0].clientX, false);
+        });
+        gallery.querySelector('main')!.addEventListener('touchmove', e => {
+            handleSwipeMove(gallery, e.touches[0].clientX);
+        });
+
+        // Navigating by clicking on the dots
+        gallery.querySelectorAll('footer > button').forEach(btn => {
+            btn.addEventListener('click', e => {
+                const index = (e.target as HTMLElement).getAttribute('data-index')!;
+                select(gallery, parseInt(index), true);
+            });
+        });
+
+        select(gallery, 0, false);
+    });
+
+</script>
+
+<style>
+    .gallery > main > nav, .gallery > main > div {
+        grid-row: 1;
+        grid-column: 1;
+    }
+    .gallery > main > div > * {
+        user-select: none;
+    }
+    .gallery > main:hover > nav {
+        opacity: 100%;
+    }
+    .gallery > main:active > nav {
+        opacity: 100%;
+    }
+    .gallery > main > nav {
+        @apply
+            select-none;
+    }
+    .gallery > main > nav > div {
+        @apply
+            text-text-50
+            bg-[#000] bg-opacity-75
+            w-1/6 h-full
+            flex justify-center items-center
+            pointer-events-none
+            select-none;
+    }
+
+    button.selected {
+        @apply w-[1rem] h-[1rem] opacity-100;
+    }
+    button:has(+ button.selected), button.selected + button {
+        @apply w-[0.8rem] h-[0.8rem]
+    }
+</style>

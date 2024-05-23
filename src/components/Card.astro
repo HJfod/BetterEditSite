@@ -1,0 +1,29 @@
+---
+const pfp = Astro.slots.has('pfp') ? `<div class="border-text-50 border-heavy aspect-square rounded-full overflow-hidden w-[5rem] shrink-0">${await Astro.slots.render('pfp')}</div>` : '';
+const articleClass = pfp ? 'big-size' : '';
+---
+
+<article class={`${articleClass} ${Astro.props['class']}`}>
+    <Fragment set:html={pfp}/>
+    <div class={`flex flex-col ${Astro.props['innerClass'] ?? 'self-stretch gap-small'}`}>
+        <slot/>
+    </div>
+</article>
+
+<style>
+
+    article {
+        @apply
+            flex flex-row gap-normal items-center
+            bg-background-800 bg-opacity-50 rounded-normal
+            p-normal;
+        
+        width: min-content;
+        min-width: 18rem;
+    }
+    article.big-size {
+        @apply
+            w-[34rem];
+    }
+
+</style>

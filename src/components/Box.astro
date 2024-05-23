@@ -1,0 +1,17 @@
+---
+
+---
+
+<div class={Astro.props['type'] ?? ''}><slot/></div>
+
+<style>
+    div {
+        @apply
+            bg-background-500 bg-opacity-50
+            p-normal rounded-normal;
+    }
+    div.warning {
+        @apply
+            bg-[#ffaf0050];
+    }
+</style>

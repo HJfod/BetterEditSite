@@ -1,0 +1,21 @@
+---
+import { prefixURL } from '../URLPrefixer.mjs'
+const { href, style } = Astro.props;
+---
+
+<a href={prefixURL(href)} class={style}><slot/></a>
+
+<style>
+
+    a {
+        @apply
+            text-primary-300
+            underline
+            transition-all;
+    }
+    a:hover {
+        @apply
+            text-primary-50;
+    }
+
+</style>

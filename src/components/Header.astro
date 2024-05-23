@@ -1,0 +1,20 @@
+---
+
+---
+
+<h1><slot/></h1>
+
+<style>
+    h1 {
+        @apply
+            text-text-50 text-huge font-head font-bold
+    }
+</style>
+
+<style is:global>
+    h1 > em {
+        background: linear-gradient(45deg, theme(colors.primary.500), theme(colors.secondary.500));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+</style>

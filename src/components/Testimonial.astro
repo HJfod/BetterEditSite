@@ -1,0 +1,28 @@
+---
+import { ChevronsLeftIcon, ChevronsRightIcon } from "astro-feather";
+import Card from "./Card.astro";
+import Paragraph from "./Paragraph.astro";
+import Subheader from "./Subheader.astro";
+
+const { name, who, url } = Astro.props;
+---
+
+<Card innerClass="gap-tiny self-center">
+    <img
+        src={url}
+        alt={`The Profile Picture for ${name}`}
+        width="100"
+        height="100"
+        slot="pfp"
+        class="object-cover w-full h-full"
+    />
+    <Subheader>{name}</Subheader>
+    <Paragraph class="text-secondary-300 opacity-50">{who}</Paragraph>
+    <div class="flex flex-col">
+        <div class="text-text-50 opacity-50"><ChevronsLeftIcon/></div>
+        <Paragraph>
+            <slot/>
+        </Paragraph>
+        <div class="text-text-50 opacity-50 flex flex-row justify-end"><ChevronsRightIcon/></div>
+    </div>
+</Card>

@@ -1,0 +1,169 @@
+---
+import Page from '../layouts/Default.astro';
+import Header from '../components/Header.astro';
+import Button from '../components/Button.astro';
+import { ArrowDownIcon, ChevronsLeftIcon, ChevronsRightIcon, DollarSignIcon, DownloadIcon } from 'astro-feather';
+import Row from '../components/Row.astro';
+import Subheader from '../components/Subheader.astro';
+import Logo from '../components/Logo.astro';
+import CardContainer from '../components/CardContainer.astro';
+import Card from '../components/Card.astro';
+import Paragraph from '../components/Paragraph.astro';
+import Gap from '../components/Gap.astro';
+import { Image } from 'astro:assets';
+import Testimonial from '../components/Testimonial.astro';
+import Box from '../components/Box.astro';
+import Column from '../components/Column.astro';
+import Gallery from '../components/Gallery.astro';
+import Link from '../components/Link.astro';
+
+const screenshots = (await Astro.glob('../images/screenshot-*.png')).map(file => file.default);
+---
+
+<Page title="Home" description="The official website for BetterEdit - a Mod that makes the Geometry Dash Editor, well, Better.">
+    <Row>
+        <Column>
+            <Logo/>
+            
+            <Header>
+                <em>Better</em>Edit
+            </Header>
+            
+            <Subheader>
+                A Mod that makes the <em>Geometry Dash Editor</em>, well, <em class="alt">Better</em>.
+            </Subheader>
+        
+            <Row>
+                <Button href="#content"><ArrowDownIcon/>What is BetterEdit?</Button>
+                <Button href="/install" style="primary"><DownloadIcon/>Install for Geode</Button>
+            </Row>
+        </Column>
+
+        <Gap/>
+
+        <Gallery title="Feature Showcase">
+            <Image src={screenshots[0]} alt="Better Color Selection, showing previews of colors as well as more channels and pages!" />
+            <Image src={screenshots[1]} alt="Better Font Selection, showing more fonts at once!" />
+            <Image src={screenshots[2]} alt="BetterEdit settings, allowing you to toggle features and change the size of the Editor UI" />
+            <Image src={screenshots[3]} alt="Custom grid scale, allowing you to snap to any units" />
+            <Image src={screenshots[4]} alt="The Editor open with BetterEdit enabled, showcasing UI scale and the Current Zoom label" />
+        </Gallery>
+    </Row>
+
+    <span id="content"/>
+
+    <Gap big="true"/>
+
+    <Paragraph big="true">
+        <em>BetterEdit</em> is a mod for Geometry Dash that improves the Editor in 
+        various ways, such as <em class="alt">improved Popup interfaces</em>, <em class="alt">bugfixes</em>, and lots 
+        of <em class="alt">Quality-of-Life</em> changes.
+    </Paragraph>
+
+    <Paragraph big="true">
+        BetterEdit is developed by <em>HJfod</em> with the help of <Link href="#developers">other modders</Link> and 
+        <Link href="https://github.com/HJfod/BetterEdit">Open-Source</Link> contributors.
+    </Paragraph>
+
+    <Gap/>
+
+    <Subheader>Feature list</Subheader>
+    <CardContainer>
+        <Card>
+            <Subheader>Grid Size Controls</Subheader>
+            <Paragraph>
+                Customize the size of the Grid using simple buttons or keybinds
+            </Paragraph>
+        </Card>
+
+        <Card>
+            <Subheader>Better Color Selection</Subheader>
+            <Paragraph>
+                Improved color selection menu, showing <em>Color Previews</em>, all available <em>Special Channels</em>, 
+                and a <em>Recent Colors</em> list!
+            </Paragraph>
+        </Card>
+
+        <Card>
+            <Subheader>Better Font Selection</Subheader>
+            <Paragraph>
+                Improved font selection menu, with a full easy-to-use list of fonts!
+            </Paragraph>
+        </Card>
+
+        <Card>
+            <Subheader>Improved Zooming</Subheader>
+            <Paragraph>
+                Zoom using <em>Control + Scroll Wheel</em>, or pinching on mobile!
+            </Paragraph>
+        </Card>
+
+        <Card>
+            <Subheader>Customizable Keybinds</Subheader>
+            <Paragraph>
+                Customizable keybinds for nearly everything in the editor!
+            </Paragraph>
+        </Card>
+
+        <Card>
+            <Subheader>Edit UI Scale</Subheader>
+            <Paragraph>
+                Is the editor feeling too cluttered for you? You can <em>customize the scale of the UI</em>, 
+                making buttons smaller for more convenient PC usage!
+            </Paragraph>
+        </Card>
+
+        <Card>
+            <Subheader>View tab</Subheader>
+            <Paragraph>
+                Quickly toggle the visibility of various elements, such as 
+                <em>Preview Mode</em>, <em>Trigger Lines</em> and more!
+            </Paragraph>
+        </Card>
+
+        <Card>
+            <Subheader>And more!</Subheader>
+            <Paragraph>
+                This is just a quick list; BetterEdit has lots more features 
+                geared towards creators, such as <em>bugfixes</em>, 
+                <em>Quality-of-Life improvements</em> and more!
+            </Paragraph>
+        </Card>
+    </CardContainer>
+
+    <Gap/>
+
+    <Subheader>Testimonials</Subheader>
+    <CardContainer>
+        <Testimonial name="HJfod" who="Developer" url="https://avatars.githubusercontent.com/u/60038575?v=4">
+            I was a creator myself for 6 years, and BetterEdit was built to improve everything I thought 
+            was lacking back then.
+        </Testimonial>
+
+        <Testimonial name="Mat" url="https://avatars.githubusercontent.com/u/26722564?v=4">
+            I did not consent to this!!! Let me free!!!
+        </Testimonial>
+
+        <Testimonial name="Camila314" who="Developer of iCreate" url="https://avatars.githubusercontent.com/u/47485054?v=4">
+            Half of all iCreate features are stolen directly from BetterEdit &lt;3
+        </Testimonial>
+    </CardContainer>
+
+    <Gap/>
+
+    <Subheader>Supported by You!</Subheader>
+    <Paragraph>
+        BetterEdit is supported by <em>donations</em>. If you like the mod and would like to give me a small 
+        thank you, I would highly appreciate donating on my <em>Ko-fi</em>!
+    </Paragraph>
+
+    <Button href="https://ko-fi.com/hjfod"><DollarSignIcon/>Donate on Ko-Fi</Button>
+
+    <Box type="warning">
+        <Paragraph>
+            Please only donate if you have the money to do so. I do not want starving student to give me their 
+            last pennies. <em class="alt">Take care of yourself first!</em> &lt;3
+        </Paragraph>
+    </Box>
+
+</Page>
