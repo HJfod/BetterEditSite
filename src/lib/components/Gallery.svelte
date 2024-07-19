@@ -118,9 +118,12 @@
         align-items: center;
         gap: var(--gap-small);
 
-        --gallery-size: 30rem;
+        --gallery-size: 40rem;
         --icon-size: calc(var(--gallery-size) / 18);
 
+        @include lt-xl {
+            --gallery-size: 35rem;
+        }
         @include lt-sm {
             --gallery-size: 20rem;
         }
@@ -145,12 +148,10 @@
                 grid-template-columns: repeat(var(--image-count), var(--gallery-size));
 
                 overflow: hidden;
-                user-select: none;
                 border-radius: .3rem;
 
                 & :global(img) {
                     display: block;
-                    user-select: none;
                     width: var(--gallery-size);
                     height: auto;
                 }

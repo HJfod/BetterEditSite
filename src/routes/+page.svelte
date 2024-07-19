@@ -8,14 +8,15 @@
     import Gap from "$lib/components/Gap.svelte";
     import Card from "$lib/components/Card.svelte";
     import Icon from "$lib/components/Icon.svelte";
-
-    import HJfodPFP from "$lib/assets/pfps/hjfod.png?enhanced";
-    import AlkPFP from "$lib/assets/pfps/alk.png?enhanced";
-    import TzuyuPFP from "$lib/assets/pfps/tzuyu.png?enhanced";
-    import YouPFP from "$lib/assets/pfps/you.png?enhanced";
     import Box from "$lib/components/Box.svelte";
     import Section from "$lib/components/Section.svelte";
     import SocialHead from "$lib/components/SocialHead.svelte";
+
+    import HJfodPFP from "$lib/assets/pfps/hjfod.png?enhanced";
+    import AlkPFP from "$lib/assets/pfps/alk.png?enhanced";
+    import CairoXPFP from "$lib/assets/pfps/cairox.jpg?enhanced";
+    import McresPFP from "$lib/assets/pfps/mcres.jpg?enhanced";
+    import YouPFP from "$lib/assets/pfps/you.png?enhanced";
 
     const screenshots = Object.values(import.meta.glob(
         "$lib/assets/screenshot-*.png",
@@ -75,13 +76,11 @@
         Customize the size of the Grid using simple buttons or keybinds
     </Card>
     <Card title="Better Color Selection">
-        Improved color selection menu, showing <em>Color Previews</em>, all available <em>Special Channels</em>, and a <em>Recent Colors</em> list!
-    </Card>
-    <Card title="Better Font Selection">
-        Improved font selection menu, with a full easy-to-use list of fonts!
+        Improved color selection menu, showing <em>Color Previews</em>, all available <em>Special Channels</em>,
+        and a <em>Recent Colors</em> list!
     </Card>
     <Card title="Improved Zooming">
-        Zoom using <em>Control + Scroll Wheel</em>, or pinch-to-zoom on mobile!
+        Zoom using <em>Control + Scroll Wheel</em>, or <em>Pinch-to-Zoom</em> on mobile!
     </Card>
     <Card title="Customizable Keybinds">
         Customizable keybinds for nearly everything in the editor thanks to the <em>Custom Keybinds</em> mod!
@@ -89,6 +88,10 @@
     <Card title="Edit UI Scale">
         Is the editor feeling too cluttered for you? You can <em>customize the scale of the UI</em>, 
         making buttons smaller for more convenient PC usage!
+    </Card>
+    <Card title="Faster Saving">
+        BetterEdit improves level saving speeds by a ton, as well as adding <em>auto-save</em>
+        to make data loss a thing of the past!
     </Card>
     <Card title="View Tab">
         Quickly toggle the visibility of various elements, such as 
@@ -105,28 +108,35 @@
 
 <Gap size="small"/>
 
-<h2>Used by Top Creators</h2>
+<h2>Beloved by Creators</h2>
 <Section>
     <p>
-        BetterEdit is beloved by many popular creators in the GD community. 
-        I think. I need to go collect some proof for that claim
+        BetterEdit is beloved by many creators in the GD community, from <em>megacollab part
+        makers</em> to people <em>crafting whole solo levels</em>.
+    </p>
+    <p>
+        One of the major goals with BetterEdit is to have it be so good that <em>once you use it, you can't go back</em>.
+        Which does make people really annoyed when GD updates and the mod goes down for a while.
     </p>
 </Section>
-<div class="feature-list">
+<div class="testimonial-list">
     <Card title="HJfod" pfp={HJfodPFP} role="Developer of BetterEdit">
-        I made the mod. Of course I like it!
+        I used to build levels myself for years and BetterEdit is everything I would've wanted back then
     </Card>
     <Card title="Alk" pfp={AlkPFP} role="Developer of EditorCollab">
-        oh my god i just realized that i LOVE girls so much oh god holy shit
+        <span class="alk-review">
+            <span class="real">oh my god i just realized that i LOVE girls so much oh god holy shit</span>
+            <span class="fake">it has a tiny bit of everything for everyone. you will find something that will help you</span>
+        </span>
     </Card>
-    <Card title="Tzuyu from TWICE" pfp={TzuyuPFP} role="TWICE">
-        사탕처럼 달콤하다는데
-        하늘을 나는 것 같다는데
-        사랑이 어떤 느낌인지?
+    <Card title="CairoX" pfp={CairoXPFP} role="Creator of Lucid Nightmares">
+        <span class="alk-review">
+            <span class="real">sir a second mod has hit the game in years</span>
+            <span class="fake">the best mod to hit this game in years</span>
+        </span>
     </Card>
-    <Card title="This could be you" pfp={YouPFP} role="">
-        Send in your review of BetterEdit and you - <em>yes, YOU</em> - may be included in the 
-        <em>Official BetterEdit site</em>!
+    <Card title="mcres" pfp={McresPFP} role="Creator">
+        honestly its the greatest qol mod I've used in any program ever
     </Card>
 </div>
 
@@ -181,6 +191,10 @@
                 align-items: center;
             }
 
+            h3 {
+                max-width: 36ch;
+            }
+
             .title {
                 display: flex;
                 flex-direction: column;
@@ -219,6 +233,41 @@
             
         @include lt-lg {
             justify-content: center;
+        }
+    }
+    .testimonial-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: stretch;
+        justify-content: stretch;
+        gap: var(--gap-small);
+            
+        @include lt-lg {
+            justify-content: center;
+        }
+    }
+    .alk-review {
+        display: contents;
+        & > .fake {
+            opacity: 100%;
+            transition-duration: var(--transition-duration);
+        }
+        & > .real {
+            position: absolute;
+            width: 30ch;
+            opacity: 0%;
+            user-select: none;
+            transition-duration: var(--transition-duration);
+            color: var(--accent-300);
+        }
+        &:hover {
+            & > .fake {
+                opacity: 0%;
+            }
+            & > .real {
+                opacity: 100%;
+            }
         }
     }
 </style>

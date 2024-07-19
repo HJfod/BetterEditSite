@@ -66,10 +66,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: .8rem;
-        gap: .8rem;
-        font-size: 1.1em;
-        --icon-size: 1.6em;
+        padding: .7em;
+        gap: .7em;
+        font-size: 1em;
+        --icon-size: 1.5em;
 
         @include lt-sm {
             font-size: 1em;

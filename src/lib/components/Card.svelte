@@ -9,7 +9,7 @@
     export let pfp: Picture | undefined = undefined;
 </script>
 
-<article style="--card-width: {pfp ? '26rem' : '13rem'}; --card-height: {pfp ? '10rem' : '13rem'}">
+<article style="--card-width: {pfp ? '26rem' : '13rem'}; --card-height: {pfp ? 'auto' : '13rem'}">
     {#if pfp}
         <div class="pfp">
             <enhanced:img src={pfp} alt="Profile picture for {title}"/>
@@ -41,6 +41,7 @@
         background-color: color-mix(in srgb, var(--background-800) 50%, transparent);
         border-radius: .5rem;
         padding: 1.5rem;
+        padding-bottom: .5rem;
 
         width: var(--card-width);
         height: var(--card-height);
@@ -67,7 +68,7 @@
             align-items: start;
             justify-content: start;
             height: 100%;
-            gap: .5rem;
+            gap: .25rem;
 
             & .role {
                 font-size: .95em;
