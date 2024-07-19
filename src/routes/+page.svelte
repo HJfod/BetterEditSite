@@ -16,7 +16,6 @@
     import AlkPFP from "$lib/assets/pfps/alk.png?enhanced";
     import CairoXPFP from "$lib/assets/pfps/cairox.jpg?enhanced";
     import McresPFP from "$lib/assets/pfps/mcres.jpg?enhanced";
-    import YouPFP from "$lib/assets/pfps/you.png?enhanced";
 
     const screenshots = Object.values(import.meta.glob(
         "$lib/assets/screenshot-*.png",
