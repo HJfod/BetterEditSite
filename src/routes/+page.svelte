@@ -16,6 +16,7 @@
     import AlkPFP from "$lib/assets/pfps/alk.png?enhanced";
     import CairoXPFP from "$lib/assets/pfps/cairox.jpg?enhanced";
     import McresPFP from "$lib/assets/pfps/mcres.jpg?enhanced";
+    import BianoxPFP from "$lib/assets/pfps/bianox.jpg?enhanced";
 
     const screenshots = Object.values(import.meta.glob(
         "$lib/assets/screenshot-*.png",
@@ -119,8 +120,11 @@
     </p>
 </Section>
 <div class="testimonial-list">
-    <Card title="HJfod" pfp={HJfodPFP} role="Developer of BetterEdit">
+    <!-- <Card title="HJfod" pfp={HJfodPFP} role="Developer of BetterEdit">
         I used to build levels myself for years and BetterEdit is everything I would've wanted back then
+    </Card> -->
+    <Card title="BIANOX" pfp={BianoxPFP} role="Creator of CYCLONE, Host of Zodiac">
+        9/10, It's an extremely useful mod for both new and experienced creators. I really like it and I use it all the time
     </Card>
     <Card title="Alk" pfp={AlkPFP} role="Developer of EditorCollab">
         <span class="alk-review">
