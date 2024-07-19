@@ -6,8 +6,14 @@
     import Link from "$lib/components/Link.svelte";
     import Row from "$lib/components/Row.svelte";
     import Section from "$lib/components/Section.svelte";
+    import SocialHead from "$lib/components/SocialHead.svelte";
 
 </script>
+
+<SocialHead
+    title="BetterEdit FAQ"
+    description="Frequently Asked Questions about the BetterEdit mod for Geometry Dash"
+/>
 
 <HomeNav/>
 

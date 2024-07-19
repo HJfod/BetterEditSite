@@ -7,12 +7,13 @@
     import searchInGeode from "$lib/assets/search-in-geode.png?enhanced";
     import HomeNav from "$lib/components/HomeNav.svelte";
     import Row from "$lib/components/Row.svelte";
+    import SocialHead from "$lib/components/SocialHead.svelte";
 </script>
 
-<svelte:head>
-    <title>Download BetterEdit</title>
-    <meta name="description" content="Instructions for Downloading & Installing BetterEdit for Geode.">
-</svelte:head>
+<SocialHead
+    title="Download BetterEdit"
+    description="Instructions for Downloading & Installing BetterEdit for Geode"
+/>
 
 <HomeNav/>
 

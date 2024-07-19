@@ -6,7 +6,13 @@
     import Row from "$lib/components/Row.svelte";
     import HomeNav from "$lib/components/HomeNav.svelte";
     import Box from "$lib/components/Box.svelte";
+    import SocialHead from "$lib/components/SocialHead.svelte";
 </script>
+
+<SocialHead
+    title="Support BetterEdit"
+    description="Support the BetterEdit mod for Geometry Dash <3"
+/>
 
 <HomeNav/>
 

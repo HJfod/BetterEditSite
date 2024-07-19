@@ -15,6 +15,7 @@
     import YouPFP from "$lib/assets/pfps/you.png?enhanced";
     import Box from "$lib/components/Box.svelte";
     import Section from "$lib/components/Section.svelte";
+    import SocialHead from "$lib/components/SocialHead.svelte";
 
     const screenshots = Object.values(import.meta.glob(
         "$lib/assets/screenshot-*.png",
@@ -26,10 +27,10 @@
     )) as string[];
 </script>
 
-<svelte:head>
-    <title>BetterEdit - Geometry Dash Editor Mod</title>
-    <meta name="description" content="The official website for BetterEdit - a Mod that makes the Geometry Dash Editor, well, Better.">
-</svelte:head>
+<SocialHead
+    title="BetterEdit - Geometry Dash Editor Mod"
+    description="The official website for BetterEdit - a Mod that makes the Geometry Dash Editor, well, Better"
+/>
 
 <div class="title-and-screenshots">
     <div class="title-column">
