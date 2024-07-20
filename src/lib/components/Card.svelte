@@ -9,11 +9,7 @@
     export let pfp: Picture | undefined = undefined;
 </script>
 
-<article style="
-    --card-width: {pfp ? '26rem' : '13rem'};
-    --card-height: {pfp ? 'auto' : '13rem'};
-    --card-bottom: {pfp ? '.5rem' : 'auto'}
-">
+<article class:pfp>
     {#if pfp}
         <div class="pfp">
             <enhanced:img src={pfp} alt="Profile picture for {title}"/>
@@ -24,6 +20,7 @@
             <h2>{title}</h2>
             {#if role}<p class="role">{role}</p>{/if}
         </Column>
+        {#if !pfp}<hr>{/if}
         {#if pfp}<Icon icon="quote-start" --icon-color="var(--background-500)"/>{/if}
         <p><slot/></p>
         {#if pfp}
@@ -45,10 +42,20 @@
         background-color: color-mix(in srgb, var(--background-800) 50%, transparent);
         border-radius: .5rem;
         padding: 1.5rem;
-        padding-bottom: var(--card-bottom);
 
-        width: var(--card-width);
-        height: var(--card-height);
+        width: 13rem;
+        height: 13rem;
+
+        &.pfp {
+            width: 26rem;
+            height: auto;
+            padding-bottom: .5rem;
+                
+            @include lt-sm {
+                width: 100%;
+                height: auto;
+            }
+        }
         
         @include lt-sm {
             width: 100%;
@@ -72,7 +79,13 @@
             align-items: start;
             justify-content: start;
             height: 100%;
-            gap: .25rem;
+
+            & > hr {
+                display: block;
+                width: 100%;
+                opacity: 25%;
+                color: var(--text-50);
+            }
 
             & .role {
                 font-size: .95em;
@@ -87,6 +100,9 @@
             & > .align-end {
                 align-self: end;
             }
+        }
+        &.pfp > .content {
+            gap: .25rem;
         }
     }
 </style>
