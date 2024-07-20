@@ -258,7 +258,7 @@
         }
         & > .real {
             position: absolute;
-            width: 30ch;
+            width: min(30ch, 40vw);
             opacity: 0%;
             user-select: none;
             transition-duration: var(--transition-duration);

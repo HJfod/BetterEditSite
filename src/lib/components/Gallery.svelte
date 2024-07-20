@@ -127,6 +127,9 @@
         @include lt-sm {
             --gallery-size: 20rem;
         }
+        @include lt-xs {
+            --gallery-size: 80vw;
+        }
 
         & > main {
             display: grid;

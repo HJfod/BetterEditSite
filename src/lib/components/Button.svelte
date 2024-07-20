@@ -71,18 +71,18 @@
         font-size: 1em;
         --icon-size: 1.5em;
 
+        transition: color, background-color, border-color, transform;
+        transition-duration: var(--transition-duration);
+
+        cursor: pointer;
+        user-select: none;
+
         @include lt-sm {
             font-size: 1em;
             padding: .4rem;
             gap: .4rem;
             --icon-size: 1.2em;
         }
-
-        transition: color, background-color, border-color, transform;
-        transition-duration: var(--transition-duration);
-
-        cursor: pointer;
-        user-select: none;
 
         // &:hover {
         //     transform: scale(105%) translateY(-.2em);
