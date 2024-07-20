@@ -9,7 +9,11 @@
     export let pfp: Picture | undefined = undefined;
 </script>
 
-<article style="--card-width: {pfp ? '26rem' : '13rem'}; --card-height: {pfp ? 'auto' : '13rem'}">
+<article style="
+    --card-width: {pfp ? '26rem' : '13rem'};
+    --card-height: {pfp ? 'auto' : '13rem'};
+    --card-bottom: {pfp ? '.5rem' : 'auto'}
+">
     {#if pfp}
         <div class="pfp">
             <enhanced:img src={pfp} alt="Profile picture for {title}"/>
@@ -41,7 +45,7 @@
         background-color: color-mix(in srgb, var(--background-800) 50%, transparent);
         border-radius: .5rem;
         padding: 1.5rem;
-        padding-bottom: .5rem;
+        padding-bottom: var(--card-bottom);
 
         width: var(--card-width);
         height: var(--card-height);

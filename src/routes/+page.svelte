@@ -98,9 +98,8 @@
         <em>Preview Mode</em>, <em>Trigger Lines</em> and more!
     </Card>
     <Card title="And more!">
-        This is just a quick list; BetterEdit has lots more features 
-        geared towards creators, such as <em>bugfixes</em>, 
-        <em>Quality-of-Life improvements</em> and more!
+        This is just a quick list; BetterEdit has lots more features,
+        such as <em>bugfixes</em>, <em>Quality-of-Life improvements</em> and more!
     </Card>
 </div>
 
