@@ -62,7 +62,7 @@
         of <em class="alt">Quality-of-Life</em> changes.
     </p>
     <p>
-        BetterEdit is developed by <em>HJfod</em>, a 20-year-old university student from Finland.
+        BetterEdit is developed by <em>HJfod</em>, a 21-year-old university student from Finland.
     </p>
 </Section>
 
