@@ -149,7 +149,7 @@
 <h2>Made Possible by Your Support</h2>
 <Section>
     <p>
-        I'm a 20-year-old university student living on my own, and developing BetterEdit 
+        I'm a 21-year-old university student living on my own, and developing BetterEdit 
         would not be possible without the support of its users.
     </p>
     <p>

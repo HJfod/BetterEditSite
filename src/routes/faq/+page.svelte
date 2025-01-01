@@ -54,7 +54,7 @@
     <article id="who-made-be">
         <h2><Icon icon="help"/>Who made BetterEdit?</h2>
         <p>
-            BetterEdit is made by <em>HJfod</em>, a 20-year-old university student from Finland 
+            BetterEdit is made by <em>HJfod</em>, a 21-year-old university student from Finland 
             with a passion for all Geometry Dash -related things!
         </p>
         <p>
