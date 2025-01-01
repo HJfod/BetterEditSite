@@ -126,6 +126,9 @@ em {
         color: var(--accent-500);
     }
 }
+p.gray, span.gray, em.gray {
+    opacity: 50%;
+}
 
 p, li {
     font-family: var(--font-body), sans-serif;

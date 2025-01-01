@@ -161,10 +161,11 @@
         although I am planning on making extra Pro features in the future that supporters get access to!
     </p>
     <Button style="support-filled" href="https://ko-fi.com/hjfod" icon="kofi">Donate on Ko-Fi</Button>
-    <Box>
+    
+    <Box><p>
         Please only donate if you have the money to do so. I do not want other starving students to give me their
         last pennies. <em class="alt">Take care of yourself first!</em> <Icon icon="heart" --icon-size=1em --icon-color=var(--accent-500)/>
-    </Box>
+    </p></Box>
 </Section>
 
 <style lang="scss">
