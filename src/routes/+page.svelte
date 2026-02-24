@@ -149,7 +149,7 @@
 <h2>Made Possible by Your Support</h2>
 <Section>
     <p>
-        I'm a 20-year-old university student living on my own, and developing BetterEdit 
+        I'm a 21-year-old university student living on my own, and developing BetterEdit 
         would not be possible without the support of its users.
     </p>
     <p>
@@ -161,11 +161,13 @@
         although I am planning on making extra Pro features in the future that supporters get access to!
     </p>
     <Button style="support-filled" href="https://ko-fi.com/hjfod" icon="kofi">Donate on Ko-Fi</Button>
-    <Box>
+    
+    <Box><p>
         Please only donate if you have the money to do so. I do not want other starving students to give me their
         last pennies. <em class="alt">Take care of yourself first!</em> <Icon icon="heart" --icon-size=1em --icon-color=var(--accent-500)/>
-    </Box>
-</Section> -->
+    </p></Box>
+</Section>
+-->
 
 <style lang="scss">
     @use '$lib/styles/media-queries.scss' as *;

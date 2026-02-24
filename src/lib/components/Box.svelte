@@ -3,7 +3,7 @@
     export let type: 'warning' | undefined = undefined;
 </script>
 
-<div class={type}><p><slot/></p></div>
+<div class={type}><slot/></div>
 
 <style lang="scss">
     div {
