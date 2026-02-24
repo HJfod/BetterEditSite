@@ -45,7 +45,7 @@
         <Row gap="small" wrap="wrap" justify="left">
             <Button icon="down-arrow" href="#about">What is BetterEdit?</Button>
             <Button icon="download" href="/download" style="primary-filled">Install for Geode</Button>
-            <Button icon="heart" href="/support" style="support-filled">Support</Button>
+            <!-- <Button icon="heart" href="/support" style="support-filled">Support</Button> -->
         </Row>
     </div>
     <Gallery title="Feature Showcase" images={screenshots} />
@@ -62,7 +62,7 @@
         of <em class="alt">Quality-of-Life</em> changes.
     </p>
     <p>
-        BetterEdit is developed by <em>HJfod</em>, a 20-year-old university student from Finland.
+        BetterEdit is developed by <em>HJfod</em>, a 2X-year-old university student from Finland.
     </p>
 </Section>
 
@@ -141,7 +141,7 @@
         honestly its the greatest qol mod I've used in any program ever
     </Card>
 </div>
-
+<!-- 
 <span id="support"/>
 
 <Gap size="small"/>
@@ -165,7 +165,7 @@
         Please only donate if you have the money to do so. I do not want other starving students to give me their
         last pennies. <em class="alt">Take care of yourself first!</em> <Icon icon="heart" --icon-size=1em --icon-color=var(--accent-500)/>
     </Box>
-</Section>
+</Section> -->
 
 <style lang="scss">
     @use '$lib/styles/media-queries.scss' as *;

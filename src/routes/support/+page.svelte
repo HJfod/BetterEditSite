@@ -25,8 +25,10 @@
         me on Ko-fi!</em>
     </p>
     <p>
-        I don't have much to offer beyond my gratitude right now, but I am <em>planning
-        on adding extra features</em> for Supporters in the future!
+        I unfortunately can't offer anything beyond my gratitude. Supporters used to 
+        receive exclusive features, but <em>those features have since been made free 
+        for everyone!</em> I don't want to paywall stuff; I want everyone to have 
+        access to what I have made :)
     </p>
     <p>
         By supporting BetterEdit, you are <em>also directly supporting Geode</em>, as I
